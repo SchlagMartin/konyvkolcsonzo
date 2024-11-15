@@ -33,7 +33,11 @@ Route::get('/konyvek/{id}', [KonyvController::class, 'show'])->name('konyvek.sho
 Route::post('/foglalas', [FoglalasController::class, 'store']);
 
 // Kölcsönzések listája
-Route::get('/foglalasok', [FoglalasController::class, 'index']);
-Route::get('/foglalasok/{id}', [FoglalasController::class, 'show']);
+
 Route::put('/foglalasok/{id}', [FoglalasController::class, 'update'])->name('foglalasok.update');
+// Example of a POST-only route
+Route::post('/foglalas', [FoglalasController::class, 'store'])->name('foglalas.store');
+
+// To allow GET as well:
+Route::match(['get', 'post'], '/foglalas', [FoglalasController::class, 'store']);
 require __DIR__.'/auth.php';

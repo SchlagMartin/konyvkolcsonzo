@@ -13,7 +13,7 @@ class FoglalasController extends Controller
     {
         // Validálás
         $request->validate([
-            'konyv_id' => 'required|exists:konyvek,id', // Az autó létezését ellenőrizzük
+            'konyv_id' => 'required|exists:konyv,id', // Az autó létezését ellenőrizzük
             'email' => 'required|email',
             'rent_start' => 'required|date',
         ]);
