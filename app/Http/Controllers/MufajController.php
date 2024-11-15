@@ -9,7 +9,7 @@ class MufajController extends Controller
 {
     public function create()
     {
-        return view('cars.create');
+        return view('mufajok.create');
     }
 
     public function store(Request $request)

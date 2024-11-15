@@ -5,7 +5,7 @@
 <h1>{{ $konyv->cim }} részletei</h1>
 
 <p>Szerző: {{ $konyv->cim }}</p>
-<p>Műfaj: {{ $könyv->mufaj }}</p>
+<p>Műfaj: {{ $konyv->mufaj }}</p>
 <p>Kiadási Éve: {{ $konyv->kiadasev }}</p>
 
 <h2>Kölcsönzés létrehozása</h2>

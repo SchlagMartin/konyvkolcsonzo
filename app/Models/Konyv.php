@@ -11,6 +11,7 @@ class konyv extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = ['cim', 'szerzo', 'mufaj', 'kiadasev'];
+    protected $table ='konyv';
     public function foglalasok()
     {
         return $this->hasMany(Foglalas::class);

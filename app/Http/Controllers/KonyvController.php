@@ -7,7 +7,7 @@ class KonyvController extends Controller
 {
     public function create()
     {
-        return view('konyv.create');
+        return view('konyvek.create');
     }
 
     public function store(Request $request)
@@ -27,18 +27,25 @@ public function index(Request $request)
 {
     $query = Konyv::query();
 
+    if ($request->has('cim') && $request->cim != '') {
+        $query->where('cim', 'like', '%' . $request->cim . '%');
+    }
+
+    if ($request->has('szerzo') && $request->szerzo != '') {
+        $query->where('szerzo', $request->szerzo);
+    }
+
     $query->whereDoesntHave('foglalasok', function ($query) {
         $query->whereNull('rent_end');  
     });
 
-    $cars = $query->get();
+    $konyvek = $query->get(); 
 
-    return view('konyvek.index', compact('konyvek'));
+    return view('konyvek.index', compact('konyvek')); 
 }
-
 public function show($id)
 {
     $konyv = Konyv::findOrFail($id);
-    return view('konyv.show', compact('konyv'));
+    return view('konyvek.show', compact('konyv'));
 }
 }

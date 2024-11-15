@@ -11,6 +11,7 @@ class foglalas extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [ 'email', 'konyv_id', 'rent_start', 'rent_end'];
+    protected $table ='foglalasok';
     public function konyv()
     {
         return $this->belongsTo(Konyv::class);
