@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('foglalasok', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('konyv_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('konyv_id')->foreignId('konyv_id')->constrained()->onDelete('cascade');
             $table->string('email');
-            $table->integer('konyv_id');
             $table->date('rent_start');
             $table->date('rent_end')->nullable();
             $table->softDeletes();
@@ -29,7 +28,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('foglalasok', function (Blueprint $table) {
-            $table->dropColumn('rent_end'); // rent_end oszlop eltávolítása
+            $table->dropColumn('rent_end');
         });
     }
 };
