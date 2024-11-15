@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('foglalasok', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('konyv_id')->constrained()->onDelete('cascade');
             $table->string('email');
             $table->integer('konyv_id');
             $table->date('rent_start');
