@@ -3,6 +3,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KonyvController;
 use App\Http\Controllers\FoglalasController;
+use App\Http\Controllers\MufajController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,6 +21,10 @@ Route::middleware('auth')->group(function () {
 // Új konyv felvitele
 Route::get('/new-book', [KonyvController::class, 'create']);
 Route::post('/new-book', [KonyvController::class, 'store']);
+
+// Új mufaj felvitele
+Route::get('/new-genre', [MufajController::class, 'create']);
+Route::post('/new-genre', [MufajController::class, 'store']);
 
 // Könyvek listája
 Route::get('/konyvek', [KonyvController::class, 'index'])->name('konyvek.index');

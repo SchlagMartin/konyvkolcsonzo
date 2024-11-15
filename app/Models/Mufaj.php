@@ -10,4 +10,5 @@ class mufaj extends Model
 {
     use HasFactory, SoftDeletes; 
     protected $fillable = ['mufaj'];
+    protected $table ='mufajok';
 }
